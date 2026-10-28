@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Christian Mederos - UAT Game Programming graduation objectives and project work.">
+<title>Christian Mederos Objectives Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a narrow reading column; a header band like a highway sign, then six numbered objective panels, each with its evidence cards. */
+html, body { margin: 0; }
+:root {
+  --bg: #f3f4f1;
+  --surface: #ffffff;
+  --ink: #1b2125;
+  --muted: #5b6670;
+  --rule: #d9ddd8;
+  --sign: #0f5c3c;
+  --sign-ink: #f4f7f2;
+  --amber: #b86e00;
+  --chip: #e8ece6;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12171a; --surface: #1a2125; --ink: #e8ece9; --muted: #9aa6ad; --rule: #2c363b;
+    --sign: #12663f; --sign-ink: #f1f6f1; --amber: #f0a634; --chip: #243036; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12171a; --surface: #1a2125; --ink: #e8ece9; --muted: #9aa6ad; --rule: #2c363b;
+  --sign: #12663f; --sign-ink: #f1f6f1; --amber: #f0a634; --chip: #243036; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 52rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* sign header */
+.sign { background: var(--sign); color: var(--sign-ink); }
+.sign .wrap { padding-block: 2.5rem 2rem; display: grid; gap: 1rem; }
+.sign .eyebrow { font: 500 0.78rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+.sign h1 { margin: 0; font: 700 clamp(2.4rem, 7vw, 3.6rem)/0.95 var(--display); letter-spacing: 0.01em; text-wrap: balance; }
+.sign .degree { margin: 0; font: 500 1.25rem/1.3 var(--display); letter-spacing: 0.03em; opacity: 0.92; }
+.sign .bio { margin: 0; max-width: 62ch; opacity: 0.92; }
+.links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.25rem; }
+.links a, .links span {
+  display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.85rem; border-radius: 6px;
+  border: 1.5px solid color-mix(in srgb, var(--sign-ink) 55%, transparent); text-decoration: none;
+  font: 600 0.95rem/1 var(--display); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.links a:hover { background: color-mix(in srgb, var(--sign-ink) 14%, transparent); }
+.links span { opacity: 0.6; border-style: dashed; }
+
+main .wrap { padding-block: 2.25rem 3rem; display: grid; gap: 2.5rem; }
+.section-head { display: grid; gap: 0.35rem; }
+.section-head h2 { margin: 0; font: 700 2rem/1 var(--display); letter-spacing: 0.02em; text-wrap: balance; }
+.section-head p { margin: 0; color: var(--muted); max-width: 64ch; }
+
+/* objectives */
+.objectives { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.objective { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 1.25rem 1.25rem 1.1rem; display: grid; gap: 0.9rem; }
+.obj-top { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start; }
+.marker {
+  width: 2.6rem; height: 2.6rem; border-radius: 6px; background: var(--sign); color: var(--sign-ink);
+  display: grid; place-items: center; font: 700 1.5rem/1 var(--display);
+}
+.obj-top h3 { margin: 0 0 0.15rem; font: 600 1.3rem/1.15 var(--display); letter-spacing: 0.03em; }
+.obj-top p { margin: 0; min-width: 0; }
+.evidence { display: grid; gap: 0.6rem; padding-left: 3.5rem; }
+.evidence-label { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.card { border-left: 3px solid var(--amber); padding: 0.15rem 0 0.15rem 0.9rem; display: grid; gap: 0.35rem; min-width: 0; }
+.card-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.75rem; }
+.card-title strong { font: 600 1.15rem/1.2 var(--display); letter-spacing: 0.03em; }
+.status { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
+.card p { margin: 0; }
+.repo { font: 500 0.85rem/1.4 var(--mono); word-break: break-all; }
+.repo a { color: var(--sign); text-underline-offset: 3px; }
+:root:not([data-theme="light"]) .repo a { color: var(--ink); }
+.empty { color: var(--muted); font-style: italic; margin: 0; }
+
+/* project */
+.project { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+.project-band { background: var(--sign); color: var(--sign-ink); padding: 0.9rem 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; align-items: baseline; }
+.project-band h3 { margin: 0; font: 700 1.6rem/1 var(--display); letter-spacing: 0.02em; }
+.project-band span { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+.project-body { padding: 1.25rem; display: grid; gap: 1rem; }
+.project-body p { margin: 0; max-width: 66ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.75rem 1.25rem; margin: 0; }
+.facts div { min-width: 0; }
+.facts dt { font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0.2rem 0 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+.tags li { background: var(--chip); border-radius: 4px; padding: 0.2rem 0.55rem; font: 500 0.78rem/1.4 var(--mono); }
+
+footer .wrap { padding-block: 0 2.5rem; color: var(--muted); font-size: 0.85rem; }
+
+@media (max-width: 560px) {
+  .evidence { padding-left: 0; }
+}
+</style>
+</head>
+<body>
+<header class="sign">
+  <div class="wrap">
+    <div class="eyebrow">University of Advancing Technology · Graduation Objectives</div>
+    <h1>Christian Mederos</h1>
+    <p class="degree">Game Programming</p>
+    <p class="bio">Game programming student building games in Unity and C#. This board shows the work that proves each of my degree objectives, with links to the code and videos behind it.</p>
+    <nav class="links" aria-label="Profiles">
+      <a href="https://github.com/CMederos13" target="_blank" rel="noopener">GitHub</a>
+      <span title="Link coming soon">YouTube · soon</span>
+      <a href="https://cmederos.itch.io" target="_blank" rel="noopener">itch.io</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="section-head" aria-labelledby="obj-h">
+      <h2 id="obj-h">Game Programming Degree Objectives</h2>
+      <p>The six objectives from the UAT Catalog for the Game Programming degree. Under each one is the project work that applies to it.</p>
+    </section>
+
+    <ol class="objectives">
+      <li class="objective">
+        <div class="obj-top">
+          <div class="marker" aria-hidden="true">1</div>
+          <div>
+            <h3>Completed Games</h3>
+            <p>Implement multiple completed games, including 3D games, using common tools, languages and software for web, console, PC or mobile platforms.</p>
+          </div>
+        </div>
+        <div class="evidence">
+          <div class="evidence-label">Evidence</div>
+          <div class="card">
+            <div class="card-title"><strong>GrubTrail: Highway Run</strong><span class="status">In development · GPE104 Final Project</span></div>
+            <p>A complete 2D top-down driving shooter for Windows PC, built in Unity 6 with C#: start screen, menus, a full run from start to win or lose, and a public build.</p>
+            <div class="repo"><a href="https://github.com/CMederos13/GrubTrailHighwayRun" target="_blank" rel="noopener">github.com/CMederos13/GrubTrailHighwayRun</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="objective">
+        <div class="obj-top">
+          <div class="marker" aria-hidden="true">2</div>
+          <div>
+            <h3>Game Architecture</h3>
+            <p>Design, develop and implement the architecture and infrastructure needed to support a complete game project.</p>
+          </div>
+        </div>
+        <div class="evidence">
+          <div class="evidence-label">Evidence</div>
+          <div class="card">
+            <div class="card-title"><strong>GrubTrail: Highway Run</strong><span class="status">In development · GPE104 Final Project</span></div>
+            <p>Built on a Pawn/Controller architecture with a singleton GameManager, single-purpose components (Health, Death, Shooter, DamageOnHit), an AudioManager with saved volume settings, and a six-scene flow from start screen to game over.</p>
+            <div class="repo"><a href="https://github.com/CMederos13/GrubTrailHighwayRun" target="_blank" rel="noopener">github.com/CMederos13/GrubTrailHighwayRun</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="objective">
+        <div class="obj-top">
+          <div class="marker" aria-hidden="true">3</div>
+          <div>
+            <h3>Data Structures and Algorithms</h3>
+            <p>Implement and analyze fundamental data structures and algorithms associated with game applications supporting gameplay mechanics.</p>
+          </div>
+        </div>
+        <div class="evidence">
+          <div class="evidence-label">Evidence</div>
+          <div class="card">
+            <div class="card-title"><strong>GrubTrail: Highway Run</strong><span class="status">In development · GPE104 Final Project</span></div>
+            <p>Uses a List of active zombies, a Dictionary of sound clips, vector math for zombie chase AI, a recycling road-tile system, and a spawner whose difficulty ramps up with distance.</p>
+            <div class="repo"><a href="https://github.com/CMederos13/GrubTrailHighwayRun" target="_blank" rel="noopener">github.com/CMederos13/GrubTrailHighwayRun</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="objective">
+        <div class="obj-top">
+          <div class="marker" aria-hidden="true">4</div>
+          <div>
+            <h3>Software Development Process</h3>
+            <p>Use software development processes to analyze a project problem and to design, build and test a corresponding software solution.</p>
+          </div>
+        </div>
+        <div class="evidence">
+          <div class="evidence-label">Evidence</div>
+          <div class="card">
+            <div class="card-title"><strong>GrubTrail: Highway Run</strong><span class="status">In development · GPE104 Final Project</span></div>
+            <p>Planned before coding with a written project plan that maps every rubric item to a feature and a time estimate, then built in milestones with regular Git commits and a video review at each milestone.</p>
+            <div class="repo"><a href="https://github.com/CMederos13/GrubTrailHighwayRun" target="_blank" rel="noopener">github.com/CMederos13/GrubTrailHighwayRun</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="objective">
+        <div class="obj-top">
+          <div class="marker" aria-hidden="true">5</div>
+          <div>
+            <h3>Languages, Environments and Platforms</h3>
+            <p>Demonstrate development skills using multiple programming languages, development environments and platforms, including advanced and/or experimental topics in game programming.</p>
+          </div>
+        </div>
+        <div class="evidence">
+          <div class="evidence-label">Evidence</div>
+          <div class="card">
+            <div class="card-title"><strong>GrubTrail: Highway Run</strong><span class="status">In development · GPE104 Final Project</span></div>
+            <p>Written in C# in the Unity 6 engine, versioned with Git and GitHub, and built for Windows PC with a public release on itch.io.</p>
+            <div class="repo"><a href="https://github.com/CMederos13/GrubTrailHighwayRun" target="_blank" rel="noopener">github.com/CMederos13/GrubTrailHighwayRun</a></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="objective">
+        <div class="obj-top">
+          <div class="marker" aria-hidden="true">6</div>
+          <div>
+            <h3>Collaboration and Leadership</h3>
+            <p>Establish collaboration, mentorship and professional leadership skills by working with other disciplines to deliver highly polished and completed projects.</p>
+          </div>
+        </div>
+        <div class="evidence">
+          <div class="evidence-label">Evidence</div>
+          <p class="empty">Team projects will be added here.</p>
+        </div>
+      </li>
+    </ol>
+
+    <section aria-labelledby="proj-h" style="display:grid; gap:1rem;">
+      <div class="section-head">
+        <h2 id="proj-h">Projects</h2>
+      </div>
+      <article class="project">
+        <div class="project-band">
+          <h3>GrubTrail: Highway Run</h3>
+          <span>GPE104 Final Project · 2026</span>
+        </div>
+        <div class="project-body">
+          <p>A 2D top-down driving shooter and a minigame for my larger GrubTrail game. Drive an armored truck up a zombie-filled highway: steer across four lanes, shoot zombies, dodge wrecks and grab food, ammo and repair pickups until you reach the finish. The road gets more dangerous the farther you go.</p>
+          <dl class="facts">
+            <div><dt>Engine</dt><dd>Unity 6 (2D, URP)</dd></div>
+            <div><dt>Language</dt><dd>C#</dd></div>
+            <div><dt>Platform</dt><dd>Windows PC</dd></div>
+            <div><dt>Status</dt><dd>In development</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Objectives covered">
+            <li>Objective 1</li><li>Objective 2</li><li>Objective 3</li><li>Objective 4</li><li>Objective 5</li>
+          </ul>
+          <div class="repo"><a href="https://github.com/CMederos13/GrubTrailHighwayRun" target="_blank" rel="noopener">github.com/CMederos13/GrubTrailHighwayRun</a></div>
+        </div>
+      </article>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Objectives quoted from the UAT Catalog, Game Programming degree. Updated October 2026.</div>
+</footer>
+</body>
+</html>
